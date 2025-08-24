@@ -7,6 +7,8 @@
 
 html, body { 
     margin: 0; padding: 0; 
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 img { 
@@ -282,20 +284,44 @@ button:focus{
   text-align: center;
 }
 
+
+/* =============== ADD =============== */
+.container, .my-grid, .project-grid, .history {
+  overflow-x: hidden;
+}
+
+.site-nav ul {
+  flex-wrap: wrap;
+}
+
 /* =============== RESPONSIVE =============== */
 
 /* Small */
 @media (min-width: 576px){
-  .hero-photo img{ width: 200px; }
+  .my-photo img{ width: 200px; }
+
+    .site-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cta {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .skills {
+        justify-content: flex-start;
+    }
 }
 
 /* Medium */
 @media (min-width: 768px){
-  .hero-grid{
+  .my-grid{
     grid-template-columns: 1.25fr .75fr;
   }
   
-  .timeline{
+  .history{
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -330,22 +356,16 @@ button:focus{
   .section{ padding: 72px 0; }
 
   /* Hero lebih besar */
-  .hero-text h1{
+  .my-text h1{
     font-size: clamp(2rem, 3.2vw, 2.6rem);
   }
-  .hero-photo img{ width: 220px; }
+  .my-photo img{ width: 220px; }
 
   /* Timeline tetap 2 kolom nyaman di desktop menengah */
-  .timeline{
+  .history{
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Projects bisa 3 kolom jika konten banyak (opsional)
-     -> aktifkan jika sudah menambah > 4 proyek
-  .project-grid{ grid-template-columns: repeat(3, 1fr); }
-  */
-
-  /* Desktop: nav selalu terlihat (tanpa menu popover) */
   .nav-toggle{ display: none; }
   .site-nav{
     all: unset;

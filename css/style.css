@@ -1,0 +1,357 @@
+
+*,
+*::before,
+*::after { 
+    box-sizing: border-box; 
+}
+
+html, body { 
+    margin: 0; padding: 0; 
+}
+
+img { 
+    max-width: 100%; height: auto; display: block; 
+}
+
+a { 
+    color: inherit; text-decoration: none; 
+}
+
+ul { 
+    list-style: none; padding-left: 0; margin: 0; 
+}
+
+:root{
+  --clr-bg: #D3DAD9;
+  --clr-surface: #f5f5f5;       
+  --clr-text: #37353E;          
+  --clr-muted: #44444E;         
+  --clr-brand: #715A5A;         
+  --clr-accent: #FFD369;        
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow: 0 8px 24px rgba(0,0,0,.08);
+  --container-w: 1100px;
+  --gap: 24px;
+  --font: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  /* Breakpoints */
+  --bp-sm: 576px;
+  --bp-md: 768px;
+  --bp-lg: 992px;
+}
+
+/* =============== UTAMA =============== */
+
+body{
+  font-family: var(--font);
+  color: var(--clr-text);
+  background: var(--clr-bg);
+  line-height: 1.6;
+}
+
+.container{
+  width: min(92%, var(--container-w));
+  margin-inline: auto;
+}
+
+.section{
+  padding: 56px 0;
+}
+.section-alt{
+  background: var(--clr-surface);
+}
+
+h1, h2, h3{
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+h2{
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+a:focus,
+button:focus{
+  outline: 3px solid var(--clr-accent);
+  outline-offset: 3px;
+}
+
+.skip-link{
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--clr-accent);
+  color: #000;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  z-index: 1000;
+}
+.skip-link:focus{ left: 8px; }
+
+.btn{
+  display: inline-block;
+  background: var(--clr-brand);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  transition: transform .08s ease;
+}
+.btn:hover{ transform: translateY(-1px); }
+.btn:active{ transform: translateY(0); }
+.btn-outline{
+  background: transparent;
+  color: var(--clr-brand);
+  border: 2px solid var(--clr-brand);
+}
+
+.narrow{
+  max-width: 760px;
+  text-align: justify;
+}
+
+/* =============== HEADER dan NAV =============== */
+.site-header{
+  position: sticky; 
+  top: 0;
+  backdrop-filter: saturate(180%) blur(6px);
+  background: rgba(255,255,255,0.9);
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 10;
+}
+.h-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+.brand{
+  font-weight: 800;
+  color: var(--clr-brand);
+  letter-spacing: .2px;
+}
+
+.site-nav ul{
+  display: flex;
+  gap: 16px;
+}
+.site-nav a{
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--clr-text);
+}
+.site-nav a:hover{
+  background: var(--clr-surface);
+}
+
+.nav-toggle{
+  display: none;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+/* =============== MYSELF =============== */
+.my{
+  padding: 64px 0 48px;
+}
+.my-grid{
+  display: grid;
+  gap: var(--gap);
+  align-items: center;
+}
+.my-text h1{
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  text-align: center;
+}
+.my-text .tagline{
+  color: var(--clr-muted);
+  margin: 8px 0 16px;
+  text-align: center;
+}
+.cta{ display: flex; gap: 12px; flex-wrap: wrap; }
+.my-photo img{
+  width: 180px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--clr-surface);
+  margin-inline: auto;
+}
+
+/* =============== HISTORY  =============== */
+.history{
+  display: grid;
+  gap: 16px;
+  margin-top: 8px;
+}
+.history-item{
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.history-item .meta{
+  display: inline-block;
+  color: var(--clr-muted);
+  font-size: .95rem;
+  margin-bottom: 6px;
+}
+
+/* =============== SKILLS =============== */
+.skills{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.skill{
+  background: var(--clr-brand);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: .95rem;
+}
+.skill-alt{
+  background: #e2e8f0;
+  color: #111827;
+}
+
+/* =============== PROJECTS =============== */
+.project-grid{
+  display: grid;
+  gap: 18px;
+}
+.project-card{
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: grid;
+}
+.project-card img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.project-body{
+  padding: 16px;
+}
+.badges{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+.badge{
+  font-size: .85rem;
+  background: var(--clr-surface);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+.actions{
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.link{
+  color: var(--clr-brand);
+  font-weight: 600;
+}
+
+/* =============== CONTACT =============== */
+.contact-list{
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  text-align: center;
+}
+
+/* =============== FOOTER =============== */
+.site-footer{
+  border-top: 1px solid #e5e7eb;
+  padding: 22px 0;
+  color: var(--clr-muted);
+  font-size: .95rem;
+  text-align: center;
+}
+
+/* =============== RESPONSIVE =============== */
+
+/* Small */
+@media (min-width: 576px){
+  .hero-photo img{ width: 200px; }
+}
+
+/* Medium */
+@media (min-width: 768px){
+  .hero-grid{
+    grid-template-columns: 1.25fr .75fr;
+  }
+  
+  .timeline{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  
+  .project-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+ 
+  .nav-toggle{
+    display: inline-block;
+  }
+  /* Di tablet, nav default disembunyikan (dibuka via JS) */
+  .site-nav{
+    position: absolute;
+    right: 4%;
+    top: 56px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: var(--radius);
+    padding: 10px;
+    box-shadow: var(--shadow);
+    display: none;
+  }
+  .site-nav.open{ display: block; }
+  .site-nav ul{ flex-direction: column; }
+}
+
+/* Large */
+@media (min-width: 992px){
+  /* Konten lebih lega */
+  .section{ padding: 72px 0; }
+
+  /* Hero lebih besar */
+  .hero-text h1{
+    font-size: clamp(2rem, 3.2vw, 2.6rem);
+  }
+  .hero-photo img{ width: 220px; }
+
+  /* Timeline tetap 2 kolom nyaman di desktop menengah */
+  .timeline{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Projects bisa 3 kolom jika konten banyak (opsional)
+     -> aktifkan jika sudah menambah > 4 proyek
+  .project-grid{ grid-template-columns: repeat(3, 1fr); }
+  */
+
+  /* Desktop: nav selalu terlihat (tanpa menu popover) */
+  .nav-toggle{ display: none; }
+  .site-nav{
+    all: unset;
+    display: block;
+  }
+  .site-nav ul{
+    display: flex; flex-direction: row; gap: 16px;
+  }
+}
